@@ -8,12 +8,12 @@ using VRC.Udon;
 public class PlayerPool : UdonSharpBehaviour
 {
     public GameObject healthManagerPrefab;// Prefab to be assigned
-    public GameObject UserInterfaceBars;
-    public int maxPlayers = 80; // VRChat's max players
+
+    public int maxPlayers = 16; // VRChat's max players
 
 
     public GameObject[] healthManagers;
-    public GameObject[] userInterfaceBars;
+  
 
     public VRCPlayerApi[] assignedPlayers;
 
@@ -30,8 +30,7 @@ public class PlayerPool : UdonSharpBehaviour
             healthManagers[i] = Object.Instantiate(healthManagerPrefab);
             healthManagers[i].SetActive(false); // Hide until assigned
 
-            userInterfaceBars[i] = Object.Instantiate(UserInterfaceBars);
-            userInterfaceBars[i].SetActive(false); // Hide until assigned
+  
         }
     }
 
@@ -45,8 +44,6 @@ public class PlayerPool : UdonSharpBehaviour
                 healthManagers[i].SetActive(true); // Activate the health manager
                 Networking.SetOwner(player, healthManagers[i]); // Give ownership
 
-                userInterfaceBars[i].SetActive(true);// Activate the UI manager
-                Networking.SetOwner(player, userInterfaceBars[i]); // Give ownership
                 break;
             }
         }
@@ -59,7 +56,6 @@ public class PlayerPool : UdonSharpBehaviour
             if (assignedPlayers[i] != null && assignedPlayers[i].playerId == player.playerId)
             {
                 healthManagers[i].SetActive(false); // Disable the health manager
-                userInterfaceBars[i].SetActive(false);
                 assignedPlayers[i] = null; // Free up the slot
 
                 break;

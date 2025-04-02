@@ -3,6 +3,7 @@ using UnityEngine;
 using VRC.SDKBase;
 using TMPro;
 using VRC.Udon;
+using UnityEngine.UI;
 
 public class UserInterfaceBars : UdonSharpBehaviour
 {
@@ -11,14 +12,16 @@ public class UserInterfaceBars : UdonSharpBehaviour
     public GameObject playerHealthManager;
     public TextMeshProUGUI healthText;
     public TextMeshProUGUI respawnText;
+    public Animator animator;
 
-    private PlayerHealthManager playerhealthScript;
+   private PlayerHealthManager playerhealthScript;
     private float respawnTimer = 10.0f; // Only needed locally
 
     void Start()
     {
         AttachToCamera();
         playerhealthScript = playerHealthManager.GetComponent<PlayerHealthManager>();
+        
     }
 
     private void UpdateHealthDisplay()
@@ -70,4 +73,12 @@ public class UserInterfaceBars : UdonSharpBehaviour
             canvas.transform.localRotation = Quaternion.identity;
         }
     }
+    public override void OnPlayerJoined(VRCPlayerApi player)
+    {
+        if(player.isLocal)
+        {
+            animator.Play("FadeIn");
+        }
+    }
+
 }
