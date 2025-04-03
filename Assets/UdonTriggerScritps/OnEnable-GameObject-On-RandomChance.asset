@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f11136daadff0b44ac2278a314682ab, type: 3}
   m_Name: OnEnable-GameObject-On-RandomChance
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: c14b5151849ff0f4a8ba23e4d48555bd,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: 16d4ee0a27625ee45a890a47fbc041f6,
     type: 2}
   udonAssembly: ".data_start\r\n\r\n    .export targets\r\n    .export chance0to1\r\n   
     \r\n    __Boolean_0: %SystemBoolean, null\r\n    __Single_0: %SystemSingle, null\r\n   

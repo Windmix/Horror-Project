@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f11136daadff0b44ac2278a314682ab, type: 3}
   m_Name: OnEnable-GameObject-Off
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: 64ed709a89bdf6e4a9874a2a9a791942,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: a9cd36c5fa1f83541b5451af08030dab,
     type: 2}
   udonAssembly: ".data_start\r\n\r\n    .export targets\r\n    \r\n    __index_0:
     %SystemInt32, null\r\n    __condition_0: %SystemBoolean, null\r\n    __Boolean_0:

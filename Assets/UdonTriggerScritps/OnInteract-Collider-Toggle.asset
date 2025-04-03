@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f11136daadff0b44ac2278a314682ab, type: 3}
   m_Name: OnInteract-Collider-Toggle
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: 7b08a704a28982346b6bc443a90b6c98,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: 08b14781c0ca77441ab449dfdbb3ef65,
     type: 2}
   udonAssembly: ".data_start\r\n\r\n    .export target\r\n    \r\n    __instance_0:
     %UnityEngineCollider, null\r\n    __value_0: %SystemBoolean, null\r\n    __Boolean_0:

@@ -9,7 +9,7 @@ public class Lava : UdonSharpBehaviour
 {
     public GameObject location;
     public GameObject Cube;
-    public Vector3 startPosition;
+    public GameObject startPosition;
     public Animator animator;
     VRCPlayerApi Localplayer;
     void Start()
@@ -37,6 +37,6 @@ public class Lava : UdonSharpBehaviour
     }
     public void OnCollisionStay(Collision collision)
     {
-        Cube.transform.SetPositionAndRotation(startPosition, Quaternion.AngleAxis(90.0f, Vector3.forward));
+        Cube.transform.SetPositionAndRotation(startPosition.transform.position, Quaternion.AngleAxis(90.0f, Vector3.forward));
     }
 }

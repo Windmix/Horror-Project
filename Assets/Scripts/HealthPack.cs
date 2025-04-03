@@ -1,4 +1,5 @@
 ﻿
+using TMPro;
 using UdonSharp;
 using UnityEngine;
 using VRC.SDKBase;
@@ -15,13 +16,17 @@ public class HealthPack : UdonSharpBehaviour
     public GameObject child1;
     public GameObject child2;
 
-    [UdonSynced] bool isRespawning;
-    [UdonSynced] public float respawnTimer;
+    public TextMeshProUGUI respawnText;
+
+    bool isRespawning;
+    public float respawnTimer;
 
     MeshRenderer meshrendComp;
     MeshRenderer meshrendComp1;
     MeshRenderer meshrendComp2;
     BoxCollider colliderComp;
+
+    public GameObject billboardRespawnerTime;
     void Start()
     {
         playerhealth = playerHealthManager.GetComponent<PlayerHealthManager>();
@@ -56,10 +61,11 @@ public class HealthPack : UdonSharpBehaviour
                 meshrendComp1.enabled = true;
                 meshrendComp2.enabled = true;
                 isRespawning = false;
+                billboardRespawnerTime.SetActive(false);
             }
            
         }
-        RequestSerialization();
+
 
     }
 
@@ -79,11 +85,13 @@ public class HealthPack : UdonSharpBehaviour
                 meshrendComp1.enabled = false;
                 meshrendComp2.enabled = false;
                 isRespawning = true;
+                billboardRespawnerTime.SetActive(true);
+
 
             }
           
         }
-        RequestSerialization();
+  
 
     }
 }

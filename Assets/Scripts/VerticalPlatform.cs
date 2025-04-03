@@ -5,7 +5,7 @@ using VRC.Udon;
 
 public class VerticalPlatform : UdonSharpBehaviour
 {
-    private bool movingUp;
+    public bool movingUp;
 
     // Networking
     [UdonSynced] private Vector3 syncedPosition;
@@ -26,13 +26,14 @@ public class VerticalPlatform : UdonSharpBehaviour
 
     void Start()
     {
+        Speed = 1.0f * Random.Range(1, 3);
         localPlayer = Networking.LocalPlayer;
         startPosition = transform.localPosition;
         lastPosition = startPosition;
 
         if (isOwner)
         {
-            movingUp = Random.Range(0, 2) == 1;
+            //movingUp = Random.Range(0, 2) == 1;
             syncedMovingUp = movingUp;
             RequestSerialization();
         }

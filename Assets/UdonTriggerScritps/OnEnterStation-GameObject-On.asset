@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f11136daadff0b44ac2278a314682ab, type: 3}
   m_Name: OnEnterStation-GameObject-On
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: e202ac0c413530f4db4f7c38adb7451e,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: bcfa3328d06833f4f85f0326ac62cfe6,
     type: 2}
   udonAssembly: ".data_start\r\n\r\n    .export targets\r\n    \r\n    __index_0:
     %SystemInt32, null\r\n    __condition_0: %SystemBoolean, null\r\n    __Boolean_0:

@@ -15,7 +15,10 @@ public class UserInterfaceBars : UdonSharpBehaviour
     public Animator animator;
 
    private PlayerHealthManager playerhealthScript;
-    private float respawnTimer = 10.0f; // Only needed locally
+   public float respawnTimer = 10.0f; // Only needed locally
+
+    private Vector3 savedDeathLocation;
+    public GameObject respawnGameObject;
 
     void Start()
     {
@@ -24,21 +27,37 @@ public class UserInterfaceBars : UdonSharpBehaviour
         
     }
 
-    private void UpdateHealthDisplay()
+    public void UpdateHealthDisplay()
     {
         healthText.text = "Health: " + playerhealthScript.currentHealth;
     }
-
-    private void UpdateRespawnTimer()
+    public void UpdateRespawnTimer()
     {
         respawnText.text = "YOU ARE DEAD! \n respawning in: " + respawnTimer.ToString("F0");
         respawnTimer -= Time.deltaTime;
 
+        //freeze player
+        Networking.LocalPlayer.TeleportTo(savedDeathLocation, Networking.LocalPlayer.GetRotation());
+
         if (respawnTimer <= 0.0f)
         {
-            respawnTimer = 10.0f;
-            playerhealthScript.currentHealth = 100; // Reset only locally
-            respawnText.text = "";
+            animator.Play("FadeOut");
+
+            AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+            if (stateInfo.IsName("FadeOut") && stateInfo.normalizedTime >= 1.0f)
+            {
+                Networking.LocalPlayer.TeleportTo(respawnGameObject.transform.position, Quaternion.AngleAxis(0.0f, Vector3.forward));
+
+                animator.Play("FadeIn"); // Play FadeIn when FadeOut completes
+            }
+
+            if (stateInfo.IsName("FadeIn") && stateInfo.normalizedTime >= 1.0f)
+            {
+                respawnTimer = 10.0f;
+                playerhealthScript.currentHealth = 100; // Reset only locally
+                respawnText.text = "";
+            }
+            
         }
     }
 
@@ -58,10 +77,14 @@ public class UserInterfaceBars : UdonSharpBehaviour
         if (playerhealthScript.currentHealth <= 0)
         {
             UpdateRespawnTimer();
+            return;
+            
         }
-    }
+        savedDeathLocation = Networking.LocalPlayer.GetPosition();
 
-    private void AttachToCamera()
+
+    }
+    public void AttachToCamera()
     {
         if (Networking.LocalPlayer != null)
         {
