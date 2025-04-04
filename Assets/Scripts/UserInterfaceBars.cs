@@ -98,10 +98,7 @@ public class UserInterfaceBars : UdonSharpBehaviour
     }
     public override void OnPlayerJoined(VRCPlayerApi player)
     {
-        if(player.isLocal)
-        {
-            animator.Play("FadeIn");
-        }
+
     }
 
 }

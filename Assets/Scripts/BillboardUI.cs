@@ -12,6 +12,7 @@ public class BillboardUI : UdonSharpBehaviour
     public float baseScale = 1.0f;
     public float scaleMultiplier = 1.0f;
     public float distance;
+    public string text;
 
     void Start()
     {
@@ -31,7 +32,7 @@ public class BillboardUI : UdonSharpBehaviour
 
             distance = Vector3.Distance(transform.position, playerCamera);
             transform.localScale = Vector3.one * baseScale * distance * scaleMultiplier;
-            distanceText.text = $"Hello world\n{distance:F0}m";
+            distanceText.text = $"{text}\n{distance:F0}m";
         }
     }
 }
