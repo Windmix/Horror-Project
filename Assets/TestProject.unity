@@ -10743,6 +10743,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 3b28b6e1971779345910331ad0929be8, type: 2}
   - {fileID: 2100000, guid: ef954a53cfe09b64f8baeede307a43d5, type: 2}
   - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 683a526c98ec433468e9333327708b24, type: 2}
   - {fileID: 2100000, guid: d7bd4be31a25bc64caedb2a8e19a0598, type: 2}
   - {fileID: 2100000, guid: 857066c78b920f6459bc039be067a7da, type: 2}
   - {fileID: 2100000, guid: 588da97dfb322c14d9d357bf175ef96b, type: 2}
@@ -10750,8 +10751,6 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 1657713924b31b548bb375b3b0330a0c, type: 2}
   - {fileID: 2100000, guid: 73f45695360506d40bc3531a0eee9fdb, type: 2}
   - {fileID: 2100000, guid: 3ed92721b2585ed42b35ea8ae1e91914, type: 2}
-  - {fileID: 2100000, guid: 0d2ea641d69755047839022cb007cbda, type: 2}
-  - {fileID: 2100000, guid: 5ec3dc9abaf4b81488fa85183fa6f34d, type: 2}
   - {fileID: 2100000, guid: 1d37fa1d5a516dd4e98e5255039c4c6c, type: 2}
   LightMapsNear: []
   LightMapsFar: []
