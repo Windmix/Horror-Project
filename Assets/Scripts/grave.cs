@@ -5,7 +5,6 @@ using UdonSharp;
 using UnityEngine;
 using VRC.SDKBase;
 using VRC.Udon;
-using static UnityEditor.FilePathAttribute;
 
 public class grave : UdonSharpBehaviour
 {
