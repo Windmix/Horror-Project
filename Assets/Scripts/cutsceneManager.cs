@@ -9,6 +9,7 @@ public class cutsceneManager : UdonSharpBehaviour
 {
     public Animator animator;
     public TextMeshProUGUI dialogueText;
+    public GameObject healthText;
     [TextArea(2, 5)]
     public string[] dialogueLines;
 
@@ -52,50 +53,52 @@ public class cutsceneManager : UdonSharpBehaviour
         currentCharIndex = 0;
         dialogueText.text = "";
         isTyping = true;
+        healthText.SetActive(false);
 
         ShowNextCharacter();
     }
 
     public void ShowNextCharacter()
-{
-    if (currentCharIndex < currentLine.Length)
     {
-        dialogueText.text += currentLine[currentCharIndex];
-        currentCharIndex++;
-        SendCustomEventDelayedSeconds(nameof(ShowNextCharacter), letterDelay);
-    }
-    else
-    {
-        isTyping = false;
+        if (currentCharIndex < currentLine.Length)
+        {
+            dialogueText.text += currentLine[currentCharIndex];
+            currentCharIndex++;
+            SendCustomEventDelayedSeconds(nameof(ShowNextCharacter), letterDelay);
+        }
+        else
+        {
+            isTyping = false;
 
-        // Wait 1 second, then continue to next line (or fade out)
-        SendCustomEventDelayedSeconds(nameof(ContinueToNextLine), 1f);
+            // Wait 1 second, then continue to next line (or fade out)
+            SendCustomEventDelayedSeconds(nameof(ContinueToNextLine), 1f);
+        }
     }
-}
 
-public void ContinueToNextLine()
-{
-    currentLineIndex++;
+    public void ContinueToNextLine()
+    {
+        currentLineIndex++;
 
-    if (currentLineIndex < dialogueLines.Length)
-    {
-        currentLine = dialogueLines[currentLineIndex];
-        currentCharIndex = 0;
-        dialogueText.text = ""; // Clear the previous line
-        isTyping = true;
-        ShowNextCharacter();
+        if (currentLineIndex < dialogueLines.Length)
+        {
+            currentLine = dialogueLines[currentLineIndex];
+            currentCharIndex = 0;
+            dialogueText.text = ""; // Clear the previous line
+            isTyping = true;
+            ShowNextCharacter();
+        }
+        else
+        {
+            // All lines done — fade in
+            EndCutscene();
+        }
     }
-    else
-    {
-        // All lines done — fade in
-        EndCutscene();
-    }
-}
 
 
     public void EndCutscene()
     {
         animator.Play("FadeIn");
+        healthText.SetActive(true);
         dialogueText.text = "";
         enterCutscene = false;
         hasStartedDialogue = false;
