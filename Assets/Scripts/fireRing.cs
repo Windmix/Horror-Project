@@ -13,7 +13,7 @@ public class fireRing : UdonSharpBehaviour
     
     void Start()
     {
-        speed = speed * Random.Range(1, 3);
+        speed = speed * Random.Range(1, 2);
     }
     void Update()
     {
