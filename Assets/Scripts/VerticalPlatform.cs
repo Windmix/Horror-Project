@@ -26,7 +26,7 @@ public class VerticalPlatform : UdonSharpBehaviour
 
     void Start()
     {
-        Speed = 1.0f * Random.Range(1, 3);
+        Speed = 1.0f * Random.Range(1, 2);
         localPlayer = Networking.LocalPlayer;
         startPosition = transform.localPosition;
         lastPosition = startPosition;
