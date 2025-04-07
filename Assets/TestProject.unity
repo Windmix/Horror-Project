@@ -3904,7 +3904,7 @@ MonoBehaviour:
   ExactGrip: {fileID: 0}
   allowManipulationWhenEquipped: 1
   orientation: 0
-  AutoHold: 0
+  AutoHold: 1
   InteractionText: pickUp Cube
   UseText: Use
   useEventBroadcastType: 0
