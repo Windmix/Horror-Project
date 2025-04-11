@@ -5,6 +5,9 @@
     },
     "com.vrchat.worlds": {
       "version": "3.8.0"
+    },
+    "vrchat.jordo.easyquestswitch": {
+      "version": "1.4.0"
     }
   },
   "locked": {
@@ -20,6 +23,10 @@
     },
     "com.vrchat.base": {
       "version": "3.8.0",
+      "dependencies": {}
+    },
+    "vrchat.jordo.easyquestswitch": {
+      "version": "1.4.0",
       "dependencies": {}
     }
   }
